@@ -11,12 +11,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.brtc.nearby.R;
 import com.brtc.nearby.db.DBAdapter;
 import com.brtc.nearby.map.NearByMapActivity;
 
 public class MainActivity extends ActionBarActivity {
+	private static final int ACTIVITY_RESULT_CODE = 1;
 
 	private DBAdapter dbAdapter;
 
@@ -65,6 +67,14 @@ public class MainActivity extends ActionBarActivity {
 
 			break;
 
+			case R.id.addNewMarketBtn:
+			Intent addStationIntent3 = new Intent(MainActivity.this,
+					AddNewStation.class);
+			startActivityForResult(addStationIntent3, ACTIVITY_RESULT_CODE);
+
+			break;
+
+
 		}
 	}
 
@@ -109,5 +119,22 @@ public class MainActivity extends ActionBarActivity {
 			return false;
 		}
 	}
+
+	// returned result from AddNewLocation
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+		// super.onActivityResult(requestCode, resultCode, data);
+
+		if (requestCode == ACTIVITY_RESULT_CODE) {
+			if(resultCode==1){
+				Toast.makeText(MainActivity.this,"Location Saved", Toast.LENGTH_SHORT).show();
+			}
+			else{
+				Toast.makeText(MainActivity.this,"Failed to Save", Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
+
+
 
 }

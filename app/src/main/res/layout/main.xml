@@ -18,7 +18,7 @@
             android:layout_marginTop="90dp"
             android:onClick="click"
             android:textStyle="bold"
-            android:text="All Bus Stopages"
+            android:text="All LRT Stations"
             android:textColor="#000" />
 
         <Button
@@ -29,6 +29,16 @@
             android:onClick="click"
             android:textStyle="bold"
             android:text="Find Near Yours"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/addNewMarketBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="click"
+            android:textStyle="bold"
+            android:text="Add new Station"
             android:textColor="#000" />
     </LinearLayout>
 

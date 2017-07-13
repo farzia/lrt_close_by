@@ -66,4 +66,9 @@ public class DBAdapter {
 
         return false;
     }
+
+    public boolean saveNewLrt(String name, String location, String longitude, String latitude){
+        db.execSQL("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES (" + location + ", " +  location + ", " + longitude +", " + latitude +")");
+        return true;
+    }
 }
