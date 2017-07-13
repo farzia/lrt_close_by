@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
+    android:layout_width="match_parent"
+    android:background="#eee555">
 
 
     <TextView
         android:id="@+id/textViewStationName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:text="Station Name"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <EditText
         android:id="@+id/editTextStationName"
@@ -35,11 +37,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextStationName"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:text="Location/ State" />
+        android:text="Location/ State"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <EditText
         android:id="@+id/editTextLocationState"
@@ -62,10 +65,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextLocationState"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        android:text="Latitude" />
+        android:layout_marginTop="10dp"
+        android:text="Latitude"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/textViewLongitude"
@@ -74,10 +78,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextLatitude"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        android:text="Longitude" />
+        android:layout_marginTop="10dp"
+        android:text="Longitude"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <EditText
         android:id="@+id/editTextLatitude"
