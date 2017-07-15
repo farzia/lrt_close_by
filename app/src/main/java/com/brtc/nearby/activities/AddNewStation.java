@@ -1,6 +1,7 @@
 package com.brtc.nearby.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,38 +17,32 @@ import com.brtc.nearby.db.DBHelper;
  */
 
 public class AddNewStation extends MainActivity{
+
+    public DBAdapter db;
     String name, location, latitude, longitude;
+    EditText inputName, inputLocation, inputLatitude, inputLongitude;
+    Button saveBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_new_station_layout);
 
-        EditText inputName = (EditText)findViewById(R.id.editTextStationName);
+        inputName = (EditText)findViewById(R.id.editTextStationName);
         name = inputName.getText().toString();
 
-        EditText inputLocation = (EditText)findViewById(R.id.editTextLocationState);
+        inputLocation = (EditText)findViewById(R.id.editTextLocationState);
         location = inputLocation.getText().toString();
 
-        EditText inputLatitude = (EditText)findViewById(R.id.editTextLatitude);
+        inputLatitude = (EditText)findViewById(R.id.editTextLatitude);
         latitude = inputLatitude.getText().toString();
 
-        EditText inputLongitude = (EditText)findViewById(R.id.editTextLongitude);
+        inputLongitude = (EditText)findViewById(R.id.editTextLongitude);
         longitude = inputLongitude.getText().toString();
 
-        Button saveBtn= (Button)findViewById(R.id.buttonSaveNew);
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // enter data into database method
-                if(name.matches("")|| location.matches("")|| latitude.matches("")|| longitude.matches("")){
-                    Toast.makeText(AddNewStation.this,"All fields are required", Toast.LENGTH_SHORT).show();
-                }
-                else if(!name.matches("")&& !location.matches("") && !latitude.matches("") && !longitude.matches("")){
-                    saveNewLrt(name, location, latitude, longitude);
-                    saveData();
-                }
-            }
-        });
+        saveBtn = (Button)findViewById(R.id.buttonSaveNew);
+
+        new AsyncLoadDB().execute();
+
     }
 
     public void saveData(){
@@ -61,11 +56,35 @@ public class AddNewStation extends MainActivity{
         finish();;
     }
 
-    private boolean saveNewLrt(String name, String location, String longitude, String latitude){
+    public class AsyncLoadDB extends AsyncTask<Void, Void, Void> {
 
-        //TODO : NOMAN
-        //dbAdapter.execSQL("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES (" + location + ", " +  location + ", " + longitude +", " + latitude +")");
-        return true;
+        @Override
+        protected Void doInBackground(Void... params) {
+            db = new DBAdapter(AddNewStation.this);
+            db.open();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            saveBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // enter data into database method
+                    if(inputName.getText().length() > 0 & inputLocation.getText().length() > 0 && inputLatitude.getText().length() > 0 && inputLongitude.getText().length() > 0){
+                        db.saveNewLrt(inputName.getText().toString(), inputLocation.getText().toString(), inputLatitude.getText().toString(), inputLongitude.getText().toString());
+                        startActivity(new Intent(AddNewStation.this, MainActivity.class));
+                    }else{
+                        Toast.makeText(AddNewStation.this,"All fields are required", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            //db.rawQuery("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES ('" + name + "', '" +  location + "', '" + longitude +"', '" + latitude +")", null)
+
+        }
+
     }
 
 }

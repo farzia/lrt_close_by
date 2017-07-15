@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#bbdefb">
+
+
+    <EditText
+        android:id="@+id/registerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp" />
+    <EditText
+        android:id="@+id/registerUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter User Name"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/registerName"
+        android:layout_alignLeft="@+id/registerName"
+        android:layout_alignStart="@+id/registerName"
+        android:layout_marginBottom="27dp" />
+    <EditText
+        android:id="@+id/registerPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="numberPassword"
+        android:layout_marginBottom="82dp"
+        android:layout_below="@+id/registerUserName"
+        android:layout_alignBottom="@+id/register"
+        android:layout_alignLeft="@+id/registerName"
+        android:layout_alignStart="@+id/registerName" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_below="@+id/registerPassword"
+        android:layout_centerHorizontal="true"
+        android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"/>
+
+</RelativeLayout>

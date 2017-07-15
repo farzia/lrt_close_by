@@ -41,6 +41,7 @@
         <activity android:name="com.brtc.nearby.map.MapActivity"></activity>
         <activity android:name="com.brtc.nearby.map.NearByMapActivity"></activity>
         <activity android:name="com.brtc.nearby.activities.AddNewStation"></activity>
+        <activity android:name="com.brtc.nearby.activities.RegisterActivity"></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

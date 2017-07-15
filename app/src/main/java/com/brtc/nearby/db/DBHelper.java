@@ -20,7 +20,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + " location TEXT," + " latitude TEXT," + " longitude TEXT)");
 
         db.execSQL("CREATE TABLE user("
-                + "_id INTEGER PRIMARY KEY AUTOINCREMENT," + " pin TEXT)");
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT," + " name TEXT," +
+                "username TEXT," + " password TEXT)");
 
         PRE_DEFINED_VALUES(db);
     }
@@ -28,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     // pre defined values insertion
     private void PRE_DEFINED_VALUES(SQLiteDatabase db) {
 
-        db.execSQL("INSERT INTO user(pin) VALUES ('1234')");
+        db.execSQL("INSERT INTO user(name, username, password) VALUES ('user', 'user', '1234')");
 
         db.execSQL("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES ('LRT Bukit Jalil','Kuala Lumpur','3.05879','101.69173')");
         db.execSQL("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES ('LRT Masjid Jamek','Kuala Lumpur','3.1501','101.69688')");
@@ -45,6 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS bus_stopages");
+        db.execSQL("DROP TABLE IF EXISTS user");
         onCreate(db);
 
     }

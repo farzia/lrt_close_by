@@ -59,8 +59,8 @@ public class DBAdapter {
         return cursor;
     }
 
-    public boolean check(String pinTxt) {
-        Cursor cursor = db.rawQuery("SELECT pin FROM user WHERE pin='" + pinTxt + "'", null);
+    public boolean check(String userName, String pass) {
+        Cursor cursor = db.rawQuery("SELECT name FROM user WHERE password='" + pass + "' AND username='" + userName + "'", null);
         if (cursor.getCount() > 0)
             return true;
 
@@ -68,7 +68,14 @@ public class DBAdapter {
     }
 
     public boolean saveNewLrt(String name, String location, String longitude, String latitude){
-        db.execSQL("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES (" + location + ", " +  location + ", " + longitude +", " + latitude +")");
+        db.rawQuery("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES (" + name + ", " +  location + ", " + longitude +", " + latitude +")", null);
         return true;
     }
+
+    public boolean saveNewUser(String name, String username, String password){
+        db.rawQuery("INSERT INTO user(name, username, password) VALUES (" + name + ", " +  username + ", " + password +")", null);
+        return true;
+    }
+
+
 }

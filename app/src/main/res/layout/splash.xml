@@ -2,8 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffff00"
+    android:background="#bbdefb"
     android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/edtPin"
+        android:layout_alignRight="@+id/edtPin"
+        android:layout_below="@+id/edtPin"
+        android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"
+        android:text="Done"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -15,25 +26,36 @@
         android:layout_marginTop="136dp" />
 
     <EditText
+        android:id="@+id/edtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Enter User Name"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
         android:id="@+id/edtPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Enter PIN to Start"
-        android:inputType="numberPassword" />
+        android:hint="Enter PIN"
+        android:inputType="numberPassword"
+        android:layout_below="@+id/edtName"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/done"
+        android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_alignRight="@+id/imageView"
+        android:layout_alignLeft="@+id/edtPin"
+        android:layout_alignStart="@+id/edtPin"
         android:layout_below="@+id/edtPin"
-        android:background="@null"
-        android:text="DONE"
+        android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"
+        android:text="REGISTER"
         android:textStyle="bold" />
 
 </RelativeLayout>
