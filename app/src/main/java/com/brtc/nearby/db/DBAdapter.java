@@ -68,12 +68,12 @@ public class DBAdapter {
     }
 
     public boolean saveNewLrt(String name, String location, String longitude, String latitude){
-        db.rawQuery("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES (" + name + ", " +  location + ", " + longitude +", " + latitude +")", null);
+        db.rawQuery("INSERT INTO bus_stopages(name, location, latitude, longitude) VALUES ('" + name + "', '" +  location + "', '" + longitude +"', '" + latitude +"')", null);
         return true;
     }
 
     public boolean saveNewUser(String name, String username, String password){
-        db.rawQuery("INSERT INTO user(name, username, password) VALUES (" + name + ", " +  username + ", " + password +")", null);
+        db.rawQuery("INSERT INTO user(name, username, password) VALUES ('" + name + "', '" +  username + "', '" + password +"')", null);
         return true;
     }
 
