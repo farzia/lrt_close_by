@@ -68,7 +68,7 @@ public class MainActivity extends ActionBarActivity {
 			case R.id.addNewMarketBtn:
 			Intent addStationIntent3 = new Intent(MainActivity.this,
 					AddNewStation.class);
-			startActivityForResult(addStationIntent3,1);
+			startActivity(addStationIntent3);
 
 			break;
 
@@ -117,25 +117,5 @@ public class MainActivity extends ActionBarActivity {
 			return false;
 		}
 	}
-
-	// returned result from AddNewLocation
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data){
-		// super.onActivityResult(requestCode, resultCode, data);
-
-		if (requestCode == 1) {
-			if(resultCode==RESULT_OK){
-				String result = data.getStringExtra("RESULT");
-				if(result.matches("Saved")){
-					Toast.makeText(MainActivity.this,"Location Saved", Toast.LENGTH_SHORT).show();
-				}
-				if(result.matches("Failed")){
-					Toast.makeText(MainActivity.this,"No Data Saved", Toast.LENGTH_SHORT).show();
-				}
-			}
-		}
-	}
-
-
 
 }

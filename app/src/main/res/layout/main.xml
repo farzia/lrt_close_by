@@ -19,7 +19,8 @@
             android:onClick="click"
             android:textStyle="bold"
             android:text="All LRT Stations"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"/>
 
         <Button
             android:id="@+id/todayMarketBtn"
@@ -29,7 +30,8 @@
             android:onClick="click"
             android:textStyle="bold"
             android:text="Find Near Yours"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"/>
 
         <Button
             android:id="@+id/addNewMarketBtn"
@@ -39,7 +41,8 @@
             android:onClick="click"
             android:textStyle="bold"
             android:text="Add new Station"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"/>
     </LinearLayout>
 
 </ScrollView>

@@ -28,32 +28,14 @@ public class AddNewStation extends MainActivity{
         setContentView(R.layout.add_new_station_layout);
 
         inputName = (EditText)findViewById(R.id.editTextStationName);
-        name = inputName.getText().toString();
-
         inputLocation = (EditText)findViewById(R.id.editTextLocationState);
-        location = inputLocation.getText().toString();
-
         inputLatitude = (EditText)findViewById(R.id.editTextLatitude);
-        latitude = inputLatitude.getText().toString();
-
         inputLongitude = (EditText)findViewById(R.id.editTextLongitude);
-        longitude = inputLongitude.getText().toString();
 
         saveBtn = (Button)findViewById(R.id.buttonSaveNew);
 
         new AsyncLoadDB().execute();
 
-    }
-
-    public void saveData(){
-        Intent backIntent = new Intent();
-        String result= "Saved";
-        if(name.matches("")|| location.matches("")|| latitude.matches("")|| longitude.matches("")){
-            result= "Failed";
-        }
-        backIntent.putExtra("RESULT",result);
-        setResult(RESULT_OK, backIntent);
-        finish();;
     }
 
     public class AsyncLoadDB extends AsyncTask<Void, Void, Void> {
