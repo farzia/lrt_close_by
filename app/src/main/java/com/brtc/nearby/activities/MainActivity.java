@@ -8,6 +8,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo.State;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -115,6 +118,50 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	// Initiating Menu XML file (menu.xml)
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	/**
+	 * Event Handling for Individual menu item selected
+	 * Identify single menu item by it's id
+	 * */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+
+		switch (item.getItemId())
+		{
+			case R.id.action_showLRT_list:
+				// Single menu item is selected do something
+				// Ex: launching new activity/screen or show alert message
+				Intent marketlistIntent1 = new Intent(MainActivity.this,
+						AllBusStoppagesActivity.class);
+				startActivity(marketlistIntent1);
+				return true;
+
+			case R.id.action_show_map:
+				Intent marketlistIntent2 = new Intent(MainActivity.this,
+						NearByMapActivity.class);
+				startActivity(marketlistIntent2);
+				return true;
+
+			case R.id.action_add_new:
+				Intent addStationIntent3 = new Intent(MainActivity.this,
+						AddNewStation.class);
+				startActivity(addStationIntent3);
+				return true;
+
+			default:
+				return super.onOptionsItemSelected(item);
 		}
 	}
 
