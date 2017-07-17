@@ -56,6 +56,7 @@ public class AddNewStation extends MainActivity{
                     // enter data into database method
                     if(inputName.getText().length() > 0 & inputLocation.getText().length() > 0 && inputLatitude.getText().length() > 0 && inputLongitude.getText().length() > 0){
                         db.saveNewLrt(inputName.getText().toString(), inputLocation.getText().toString(), inputLatitude.getText().toString(), inputLongitude.getText().toString());
+                        Toast.makeText(AddNewStation.this,"DONE", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(AddNewStation.this, MainActivity.class));
                     }else{
                         Toast.makeText(AddNewStation.this,"All fields are required", Toast.LENGTH_SHORT).show();

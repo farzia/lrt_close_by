@@ -63,6 +63,7 @@ public class RegisterActivity extends Splash {
                     // enter data into database method
                     if(name != null && name.getText().length() > 0 && userName != null && userName.getText().length() > 0 && password != null && password.getText().length() > 0){
                         db.saveNewUser(name.getText().toString(), userName.getText().toString(), password.getText().toString());
+                        Toast.makeText(RegisterActivity.this,"DONE", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this, Splash.class));
                     }else{
                         Toast.makeText(RegisterActivity.this,"All fields are required", Toast.LENGTH_SHORT).show();

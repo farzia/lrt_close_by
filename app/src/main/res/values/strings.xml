@@ -4,5 +4,8 @@
     <string name="app_name">LRT Nearby</string>
     <string name="action_settings">Settings</string>
     <string name="latitude_longitude">%1$.8f, %2$.8f</string>
+    <string name="action_showLRT_list">All LRT Stations</string>
+    <string name="action_show_map">Find Near Yours</string>
+    <string name="action_add_new">Add new Station</string>
 
 </resources>
